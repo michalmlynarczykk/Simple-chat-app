@@ -1,0 +1,39 @@
+{% extends "layout.html"%}
+
+{% block title %} Chat {% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <ul class="nav justify-content-end">
+    <li class="nav nav-pills nav-fill">
+      <div class=" bg-dark text-white mt-4" style="border-radius: 1rem;">
+        <a class="btn btn-outline-light btn-lg px-5" style="border: none;" href="/history">History</a>
+      </div>
+    </li>
+    <li class="nav nav-pills nav-fill">
+      <div class="bg-dark text-white mt-4" style="border-radius: 1rem;">
+        <a class="btn btn-outline-light btn-lg px-5" style="border: none;" href="/logout">Logout</a>
+      </div>
+    </li>
+</div>
+</ul>
+</div>
+
+<div class="chat_container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="table_title" scope="col">Messages</th>
+      </tr>
+    </thead>
+  </table>
+  <ul class="chat scroll" id="chat"></ul>
+
+  <div class="type_msg">
+    <input autocomplete="off" autofocus class="form-control" id="myMessage" name="text"
+      placeholder="Type your message" type="text">
+    <button class="send_msg btn" type="submit" id="send">Send</button>
+  </div>
+</div>
+{% endblock %}

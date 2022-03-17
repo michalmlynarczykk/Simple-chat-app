@@ -1,0 +1,16 @@
+{% extends "layout.html"%}
+
+{% block title %} Bad request {% endblock %}
+
+{% block body%}
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+      <div class="card-body p-5 text-center">
+        <div class="mb-md-5 mt-md-4 pb-5">
+          <h2 class="fw-bold mb-5 text-uppercase">{{ message }}</h2>
+          <h3 class="fw-bold text-uppercase">:(</h3>
+        </div>
+      </div>
+    </div>
+{% endblock %}

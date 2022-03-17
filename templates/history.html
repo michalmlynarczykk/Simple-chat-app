@@ -1,0 +1,57 @@
+{% extends "layout.html"%}
+
+{% block title %} History {% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <ul class="nav justify-content-end">
+    <li class="nav nav-pills nav-fill">
+      <div class="bg-dark text-white mt-4" style="border-radius: 1rem;">
+        <a class="btn btn-outline-light btn-lg px-5" style="border: none;" href="/chat">Chat</a>
+      </div>
+    </li>
+    <li class="nav nav-pills nav-fill">
+      <div class="bg-dark text-white mt-4" style="border-radius: 1rem;">
+        <a class="btn btn-outline-light btn-lg px-5" style="border: none;" href="/logout">Logout</a>
+      </div>
+    </li>
+</div>
+</ul>
+</div>
+
+
+<main>
+  <div class="chat_container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="table_title" scope="col">Chat history</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <form action="/history" method="POST">
+              <button type="submit" name="user_msg" class="btn btn-outline-light bg-dark text-white table_buttons">Show my messages</button>
+              <button type="submit" name="all_msg" class="btn btn-outline-light bg-dark text-white table_buttons">Show all messages</button>
+              <button type="submit" name="users" class="btn btn-outline-light bg-dark text-white table_buttons">Show all users</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="chat">
+      {% if users %}
+        {% for user in users%}
+        <li class="text-center">{{user["user"]}}</li>
+        {% endfor %}
+        {% else %}
+        {% for msg in messages%}
+        <li>{{msg["timestamp"]}} {{msg["user"]}}:  {{msg["message"]}}</li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+</main>
+{% endblock %}
