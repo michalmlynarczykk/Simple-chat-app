@@ -11,5 +11,9 @@ Stack that I was using for this project consists of:
 - Sqlite3
 - other smaller libraries
 
+## How to run
+pull repository and install (with pip install) all files from requirements.txt
+- 
+
 
 
