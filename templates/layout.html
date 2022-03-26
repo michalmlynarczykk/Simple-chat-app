@@ -21,7 +21,7 @@
     <script type="text/javascript" charset="utf-8">
         
         $(document).ready(function () {
-            var socket = io.connect("http://" + document.domain + ":" + location.port);
+            var socket = io.connect("https://chatmichalmlynarczyk.herokuapp.com/");
 
             socket.on('message', function (msg) {
                 $("#chat").append('<li class="text">' + msg + '</li>');
