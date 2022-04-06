@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import os
 import datetime
 import time
@@ -16,7 +17,7 @@ Session(app)
 db = SQL("sqlite:///history.db") 
 
 # configure socketio
-socketio = SocketIO(app, manage_session=False)
+socketio = SocketIO(app, always_connect=True, engineio_logger=True)
 
 
 @app.route("/")
@@ -89,6 +90,9 @@ def logout():
 
 
 # socketio methods
+@socketio.on('image-upload')
+def imageUpload(image):
+    emit('send-image',image,broadcast=True)
 
 @socketio.on('message')
 def handle_message(data):
@@ -102,7 +106,3 @@ def handle_message(data):
     # send data to chat
     data = str(user +':' + ' ' + data)
     emit('message',data,broadcast=True)
-    
-
-
-
